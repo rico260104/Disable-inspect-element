@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Disable Inspect Element</title>
+</head>
+
+<body oncontextmenu="return false">
+   <h1>Hello World</h1>
+   <script>
+
+      // take body to change the content
+      const body = document.getElementsByTagName('body');
+      // stop keyboard shortcuts
+      window.addEventListener("keydown", (event) => {
+         // stop inspectelement
+         if (event.keyCode == 123) {
+            event.preventDefault();//agar kembali ke false
+            alert("Restart Your Pc");
+         }
+         // stop view sources
+         if (event.ctrlKey && (event.key === "U" || event.key === "u")) {
+            event.preventDefault();
+            alert("Restart Your PC!");
+         }
+      });
+      // stop right click
+      document.addEventListener('contextmenu', function (e) {
+         e.preventDefault();
+      });
+   </script>
+</body>
+
+</html>
